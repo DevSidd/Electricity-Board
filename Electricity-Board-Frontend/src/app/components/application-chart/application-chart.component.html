@@ -1,0 +1,14 @@
+<!-- your-component.component.html -->
+
+<div>
+    <label>Status:</label>
+    <select [(ngModel)]="selectedStatus" (change)="onStatusChange(selectedStatus)">
+      <option value="All">All</option>
+      <option value="Pending">Pending</option>
+      <option value="Approved">Approved</option>
+      <!-- Add other status options as needed -->
+    </select>
+  </div>
+  
+  <app-connection-chart [chartData]="chartData" [selectedStatus]="selectedStatus"></app-connection-chart>
+  

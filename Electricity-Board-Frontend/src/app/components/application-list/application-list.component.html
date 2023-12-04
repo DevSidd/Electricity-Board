@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <!-- <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/add">Add User</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav> -->
+    <!--Main Content-->
+    <div class="mt-5">
+        <h1 class="text-center">Electricity Board Application<input
+            class="form-control"
+            placeholder="Choose a date range"
+            bsDatepicker
+            [(ngModel)]="selectedDate"
+          /> </h1> 
+            <table class="table border" >  
+                <thead>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="searchInput" [(ngModel)]="searchTerm" (input)="filterUsers()" placeholder="search ID">                       
+                    </div>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Applicant_Name</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Status</th>                    
+                    <th scope="col">Date_of_Application</th>                   
+                    <th scope="col">District</th>
+                    <th scope="col">State</th>
+                    <th scope="col">Pincode</th>
+                    <th scope="col">Ownership</th>
+                    <th scope="col">GovtID_Type</th>
+                    <th scope="col">ID_Number</th>
+                    <!-- <th scope="col">Category</th>
+                    <th scope="col">Load_Applied (in KV)</th>                    
+                    <th scope="col">Modified_Date</th>                  
+                    <th scope="col">Reviewer_ID</th>
+                    <th scope="col">Reviewer_Name</th>
+                    <th scope="col">Reviewer_Comments</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users">
+                    <td>{{user.id}}</td>
+                    <td>{{user.applicantName}}</td>
+                    <td>{{user.gender}}</td>
+                    <td>{{user.status}}</td>
+                    <td>{{user.dateOfApplication}}</td>
+                    <td>{{user.district}}</td>
+                    <td>{{user.state}}</td>
+                    <td>{{user.pincode}}</td>
+                    <td>{{user.ownership}}</td>
+                    <td>{{user.govtIdType}}</td>
+                    <td>{{user.idNumber}}</td>
+                    <!-- <td>{{user.category}}</td> 
+                    <td>{{user.loadApplied}}</td>                    
+                    <td>{{user.dateOfApproval}}</td>
+                    <td>{{user.modifiedDate}}</td>                  
+                    <td>{{user.reviewerId}}</td>
+                    <td>{{user.reviewerName}}</td>
+                    <td>{{user.reviewerComments}}</td> -->
+                    <td>
+                        <div class="d-inline mx-2">
+                            <button class="btn btn-warning" (click)="updateUser(user.id)" type="button">Edit</button>
+                        </div>
+                        <div class="d-inline">
+                          <button class="btn btn-danger"  (click)="deleteUser(user.id)"  type="button">Delete</button>
+                        </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+</body>
+</html>
+
+<router-outlet></router-outlet>
